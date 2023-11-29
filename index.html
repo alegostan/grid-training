@@ -9,12 +9,23 @@
     <body>
         <div class="grid-container">
             <header>
-                <input
+                <label for="nav-btn">
+                    <input
+                        type="checkbox"
+                        onclick="navTrigger()"
+                        id="nav-btn"
+                        style="width: 100px"
+                    />
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                <!-- <input
                     type="button"
                     onclick="navTrigger()"
                     id="nav-btn"
                     style="width: 100px"
-                />
+                /> -->
             </header>
             <div class="nav"></div>
             <div class="main-container">
