@@ -9,17 +9,16 @@
     <body>
         <div class="grid-container">
             <header>
-                <label for="nav-btn">
+                <div id="nav-btn">
                     <input
+                        id="menu__toggle"
                         type="checkbox"
                         onclick="navTrigger()"
-                        id="nav-btn"
-                        style="width: 100px"
                     />
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </label>
+                    <label class="menu__btn" for="menu__toggle">
+                        <span></span>
+                    </label>
+                </div>
                 <!-- <input
                     type="button"
                     onclick="navTrigger()"
