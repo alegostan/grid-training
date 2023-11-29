@@ -90,6 +90,7 @@ aside {
     left: 0 !important;
 }
 .menu__btn {
+    -webkit-user-select: none; /* Chrome */
     user-select: none;
     position: fixed;
     top: 22px;
