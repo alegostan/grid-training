@@ -74,6 +74,7 @@ aside {
 
 #menu__toggle {
     opacity: 0;
+    display: none;
 }
 #menu__toggle:checked + .menu__btn > span {
     transform: rotate(45deg);
