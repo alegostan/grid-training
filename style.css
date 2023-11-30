@@ -13,6 +13,7 @@
         "alias-main alias-main";
     height: 100vh;
     height: 100svh;
+    transition: 0.3s;
 }
 
 .grid-container-nav {
@@ -50,6 +51,16 @@
 header {
     grid-area: alias-header;
     background-color: cadetblue;
+    font-size: 2rem;
+    display: grid;
+    align-items: center;
+    gap: 40px;
+}
+header a {
+    display: none;
+    text-decoration: none;
+    line-height: 100%;
+    color: darkslategray;
 }
 
 .main-container {
@@ -57,11 +68,13 @@ header {
     display: grid;
     background-color: darkgrey;
     grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr 1fr;
+    grid-template-rows: 1fr 250px 100px;
     grid-template-areas:
         "main"
         "aside"
         "footer";
+
+    overflow-y: scroll;
 }
 main > * {
     animation: parallax linear;
@@ -85,15 +98,64 @@ main {
 }
 footer {
     grid-area: footer;
-    background-color: blue;
+    background-color: black;
+    color: aliceblue;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+footer div {
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+footer div ul {
+    list-style: none;
+}
+footer div input,
+footer div button {
+    width: 80%;
+    height: 2rem;
+    border: none;
+    border-radius: 30px;
+    text-align: center;
+    background-color: blanchedalmond;
+}
+footer div button {
+    background-color: rgba(255, 235, 205, 0.742);
+    border: 2px solid rgb(199, 199, 0);
+}
+footer div button:active {
+    background-color: blanchedalmond;
 }
 aside {
     grid-area: aside;
     background-color: chocolate;
+    overflow-x: scroll;
+
+    overflow-y: hidden;
+    scrollbar-width: none;
+
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+aside img {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 40px;
+    transition: 0.3s;
+}
+aside img:hover {
+    transform: scale(1.4);
 }
 @keyframes parallax {
     to {
-        transform: translateY(calc(var(--parallax-speed) * -200px));
+        transform: translateY(calc(var(--parallax-speed) * -20px));
     }
 }
 
@@ -104,7 +166,13 @@ aside {
         grid-template-areas:
             "alias-header alias-header"
             "alias-nav alias-main";
-        overflow-y: scroll;
+    }
+    header {
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 70px 70px 100px;
+    }
+    header a {
+        display: block;
     }
     .main-container {
         grid-template-columns: minmax(400px, 600px) 1fr;
@@ -113,6 +181,14 @@ aside {
             "main aside"
             "main aside"
             "footer footer";
+    }
+    aside {
+        flex-wrap: wrap;
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        justify-content: space-between;
+        scrollbar-width: none;
     }
 
     .nav {
